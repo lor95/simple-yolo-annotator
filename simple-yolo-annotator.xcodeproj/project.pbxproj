@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BC768BAD28F1CAA50096965A /* libopencv_core.4.5.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BC768BAC28F1CAA50096965A /* libopencv_core.4.5.3.dylib */; };
+		BC474A1728F1FA82004EB2C5 /* libopencv_core.4.5.3.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = BC768BAC28F1CAA50096965A /* libopencv_core.4.5.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		BC768BAD28F1CAA50096965A /* libopencv_core.4.5.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BC768BAC28F1CAA50096965A /* libopencv_core.4.5.3.dylib */; settings = {ATTRIBUTES = (Required, ); }; };
 		BCF5516928F1C8F600389123 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCF5516828F1C8F600389123 /* main.cpp */; };
 		BCF5517528F1C97000389123 /* libopencv_imgproc.4.5.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF5517128F1C97000389123 /* libopencv_imgproc.4.5.3.dylib */; };
 		BCF5517628F1C97000389123 /* libopencv_imgproc.4.5.3.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = BCF5517128F1C97000389123 /* libopencv_imgproc.4.5.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -29,10 +30,11 @@
 		};
 		BCF5517D28F1C97000389123 /* Embed Libraries */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				BC474A1728F1FA82004EB2C5 /* libopencv_core.4.5.3.dylib in Embed Libraries */,
 				BCF5517828F1C97000389123 /* libopencv_imgcodecs.4.5.3.dylib in Embed Libraries */,
 				BCF5517628F1C97000389123 /* libopencv_imgproc.4.5.3.dylib in Embed Libraries */,
 				BCF5517A28F1C97000389123 /* libopencv_highgui.4.5.3.dylib in Embed Libraries */,
@@ -289,7 +291,7 @@
 				HEADER_SEARCH_PATHS = /usr/local/Cellar/opencv/4.5.3_2/include/opencv4;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/usr/local/Cellar/opencv/4.5.3_2/lib,
+					"/usr/local/Cellar/opencv/4.5.3_2/lib/**",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -306,7 +308,7 @@
 				HEADER_SEARCH_PATHS = /usr/local/Cellar/opencv/4.5.3_2/include/opencv4;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/usr/local/Cellar/opencv/4.5.3_2/lib,
+					"/usr/local/Cellar/opencv/4.5.3_2/lib/**",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
