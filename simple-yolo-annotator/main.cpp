@@ -15,16 +15,16 @@ namespace fs = filesystem;
 
 const char sep =
 #ifdef _WIN32
-    '\\';
+'\\';
 #else
-    '/';
+'/';
 #endif
 
 const float MAX_WIDTH = 1280.0;
 ofstream box_file;
 
 class FileImg {
-   public:
+public:
     string filename;
     vector<string> boxes;
     vector<Mat> history_img;
@@ -48,11 +48,11 @@ void draw_rectangle(Mat img, Point coords, int width, int height, string filenam
 
 void handle_selection(int event, int x, int y, int flags, void* file) {
     FileImg* file_img = (FileImg*)file;
-
+    
     Mat src_img = file_img->history_img.back().clone();
     int rect_width = x - file_img->temp_coords.x;
     int rect_height = y - file_img->temp_coords.y;
-
+    
     if (event == EVENT_LBUTTONDOWN) {
         (*file_img).temp_coords = Point(x, y);
     } else if (event == EVENT_LBUTTONUP) {
@@ -70,7 +70,7 @@ void handle_selection(int event, int x, int y, int flags, void* file) {
         (*file_img).history_img.push_back(src_img);
         (*file_img).boxes.push_back("1 " + to_string(rel_x) + " " + to_string(rel_y) + " " +
                                     to_string(rel_w) + " " + to_string(rel_h));
-
+        
     } else if (event == EVENT_MOUSEMOVE && flags == EVENT_FLAG_LBUTTON) {
         draw_rectangle(src_img, file_img->temp_coords, rect_width, rect_height, file_img->filename);
     }
@@ -94,16 +94,16 @@ int main(int argc, const char* argv[]) {
         filenames.insert(filenames.end(), temp_files.begin(), temp_files.end());
         temp_files.clear();
     }
-
+    
     for (size_t i = 0; i < filenames.size(); ++i) {
         FileImg file_img;
         file_img.filename = filenames[i];
         file_img.history_img.push_back(resize_with_aspect(imread(file_img.filename)));
-
+        
         namedWindow(file_img.filename);
         setMouseCallback(file_img.filename, handle_selection, &file_img);
         imshow(file_img.filename, file_img.history_img.back());
-
+        
         while (true) {
             int key = waitKey(1) & 0xFF;
             if (key == 113) {
@@ -122,9 +122,9 @@ int main(int argc, const char* argv[]) {
             box_file << file_img.boxes[j] << endl;
         }
         box_file.close();
-
+        
         destroyAllWindows();
     }
-
+    
     return 0;
 }
