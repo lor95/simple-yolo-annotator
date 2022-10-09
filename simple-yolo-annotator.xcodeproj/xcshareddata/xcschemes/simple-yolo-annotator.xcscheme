@@ -53,11 +53,11 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "/Users/giulianilorenzo/Pictures/Sfondi\ MacBook\ Pro"
+            argument = "./simple-yolo-annotator/simple-yolo-annotator/samples/labels.txt"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "/Users/giulianilorenzo/Projects/simple-yolo-annotator/simple-yolo-annotator/sample.txt"
+            argument = "./simple-yolo-annotator/simple-yolo-annotator/labels.txt"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>

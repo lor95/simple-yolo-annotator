@@ -1,0 +1,29 @@
+{
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "Ubuntu 22: g++ build active file",
+            "command": "/usr/bin/g++",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${workspaceFolder}/${workspaceFolderBasename}/main.cpp",
+                "${workspaceFolder}/${workspaceFolderBasename}/lib/FileImg.cpp",
+                "${workspaceFolder}/${workspaceFolderBasename}/lib/helpers.cpp",
+                "-o",
+                "${workspaceFolder}/Build/Ubuntu/${workspaceFolderBasename}",
+                "`pkg-config --cflags --libs opencv4`"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build"
+            }
+        }
+    ],
+    "version": "2.0.0"
+}

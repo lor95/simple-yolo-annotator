@@ -1,3 +1,4 @@
 **/.DS_Store
 **/Build/Intermediates.noindex/
 simple-yolo-annotator.xcodeproj/project.xcworkspace/xcuserdata/giulianilorenzo.xcuserdatad/UserInterfaceState.xcuserstate
+simple-yolo-annotator/samples/images/*.txt

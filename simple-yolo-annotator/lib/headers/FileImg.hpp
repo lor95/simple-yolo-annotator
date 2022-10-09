@@ -8,13 +8,15 @@
 #include <iostream>
 #include <opencv2/opencv.hpp>
 
-class Label {
+class Label
+{
 public:
     std::string label;
     cv::Scalar label_color;
 };
 
-class FileImg {
+class FileImg
+{
 private:
     std::string filename;
     std::vector<std::string> boxes;
@@ -22,7 +24,7 @@ private:
     int selector = 0;
     std::vector<cv::Mat> history_img;
     cv::Point temp_coords;
-    
+
 public:
     FileImg(std::string name, std::vector<std::string> labels_data);
     cv::Point get_ref_coords();
