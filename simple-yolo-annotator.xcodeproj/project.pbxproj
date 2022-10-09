@@ -47,6 +47,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BC1E190328F2D1970059AD67 /* Colors.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Colors.hpp; sourceTree = "<group>"; };
 		BC33DBEA28F2B59C0051852D /* helpers.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = helpers.cpp; sourceTree = "<group>"; };
 		BC33DBEB28F2B59C0051852D /* helpers.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = helpers.hpp; sourceTree = "<group>"; };
 		BC33DBEF28F2B5BA0051852D /* FileImg.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FileImg.hpp; sourceTree = "<group>"; };
@@ -90,6 +91,7 @@
 			children = (
 				BC33DBEB28F2B59C0051852D /* helpers.hpp */,
 				BC33DBEF28F2B5BA0051852D /* FileImg.hpp */,
+				BC1E190328F2D1970059AD67 /* Colors.hpp */,
 			);
 			path = headers;
 			sourceTree = "<group>";

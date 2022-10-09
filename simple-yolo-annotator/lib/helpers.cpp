@@ -16,8 +16,8 @@ using namespace cv;
 const float MAX_WIDTH = 1280.0;
 bool dragging = false;
 
-void draw_rectangle(Mat img, Point coords, int width, int height, string filename) {
-    rectangle(img, coords, Point(coords.x + width, coords.y + height), Scalar(0, 0, 255), 1);
+void draw_rectangle(Mat img, Point coords, int width, int height, string filename, Scalar color) {
+    rectangle(img, coords, Point(coords.x + width, coords.y + height), color, 1);
     imshow(filename, img);
 }
 
@@ -44,22 +44,17 @@ void handle_selection(int event, int x, int y, int flags, void* file) {
     } else if (event == EVENT_LBUTTONUP) {
         dragging = false;
         draw_rectangle(src_img, file_img->get_ref_coords(), rect_width, rect_height,
-                       file_img->get_filename());
+                       file_img->get_filename(), file_img->get_current_label().label_color);
         float rel_w = abs((float)rect_width / src_img.cols);
         float rel_h = abs((float)rect_height / src_img.rows);
-        float rel_x = (float)file_img->get_refx() / src_img.cols;
-        float rel_y = (float)file_img->get_refy() / src_img.rows;
-        if (rect_width < 0) {
-            rel_x = ((float)file_img->get_refx() - abs(rect_width)) / src_img.cols;
-        }
-        if (rect_height < 0) {
-            rel_y = ((float)file_img->get_refy() - abs(rect_height)) / src_img.rows;
-        }
-        file_img->add_selection(src_img, "1 " + to_string(rel_x) + " " + to_string(rel_y) + " " +
-                                  to_string(rel_w) + " " + to_string(rel_h));
-
+        float rel_x = abs((float)(file_img->get_refx() + rect_width) / src_img.cols);
+        float rel_y = abs((float)(file_img->get_refy() + rect_height) / src_img.rows);
+        file_img->add_selection(src_img, to_string(file_img->get_label_index()) + " " +
+                                to_string(rel_x) + " " + to_string(rel_y) + " " +
+                                to_string(rel_w) + " " + to_string(rel_h));
+        
     } else if (event == EVENT_MOUSEMOVE && dragging) {
         draw_rectangle(src_img, file_img->get_ref_coords(), rect_width, rect_height,
-                       file_img->get_filename());
+                       file_img->get_filename(), file_img->get_current_label().label_color);
     }
 }

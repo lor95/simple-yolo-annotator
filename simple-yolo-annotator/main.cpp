@@ -27,6 +27,7 @@ ofstream box_file;
 
 int main(int argc, const char* argv[]) {
     string path = (string)argv[1];
+    string labels = (string)argv[2];
     string exts[] = {"*.png", "*.jpeg", "*.jpg"};
     if (*path.end() != sep) {
         path += sep;
@@ -35,17 +36,26 @@ int main(int argc, const char* argv[]) {
         cout << "Invalid path." << endl;
         return 1;
     }
+    if (!fs::exists(labels)) {
+        cout << "Invalid labels path." << endl;
+        return 2;
+    }
+    ifstream input(labels);
     vector<string> filenames;
     vector<string> temp_files;
+    vector<string> label_lines;
     for (int i = 0; i < size(exts); i++) {
         string folder = path + exts[i];
         glob(folder, temp_files);
         filenames.insert(filenames.end(), temp_files.begin(), temp_files.end());
         temp_files.clear();
     }
+    for (string line; getline(input, line);) {
+        label_lines.push_back(line);
+    }
     
     for (size_t i = 0; i < filenames.size(); ++i) {
-        FileImg *file_img = new FileImg(filenames[i]);
+        FileImg* file_img = new FileImg(filenames[i], label_lines);
         file_img->set_last_img(resize_with_aspect(imread(file_img->get_filename())));
         
         namedWindow(file_img->get_filename());
@@ -59,6 +69,8 @@ int main(int argc, const char* argv[]) {
             } else if (key == 114 && file_img->count_history() > 1) {  // r
                 file_img->remove_selection();
                 imshow(file_img->get_filename(), file_img->get_last_img());
+            } else if (key == 101) {  // e
+                file_img->increase_selector();
             }
         }
         if (file_img->count_boxes() > 0) {
@@ -73,6 +85,7 @@ int main(int argc, const char* argv[]) {
             }
             box_file.close();
         }
+        
         delete file_img;
         
         destroyAllWindows();
