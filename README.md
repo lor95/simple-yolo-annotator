@@ -1,3 +1,16 @@
+# Instructions
+
+Execute via CLI by running:
+```bash
+simple-yolo-annotator <PATH_TO_IMG_FOLDER> <PATH_TO_LABELS_FILE>
+```
+
+Draw rectangles with the mouse.  
+Commands:
+* __Q KEY__: annotate next image;
+* __R KEY__: delete annotation;
+* __E KEY__: loop over labels.
+
 # Install instructions
 
 Build opencv from source and execute:  
@@ -37,6 +50,8 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
 
 sudo make -j8
 sudo make install
+sudo ldconfig
+
 cd ~ && rm -rf ~/opencv_build/
 pkg-config --modversion opencv4
 ```
