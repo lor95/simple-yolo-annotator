@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC33DBEC28F2B59C0051852D /* helpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC33DBEA28F2B59C0051852D /* helpers.cpp */; };
+		BC33DBF228F2B9830051852D /* FileImg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC33DBF128F2B9830051852D /* FileImg.cpp */; };
 		BC474A1728F1FA82004EB2C5 /* libopencv_core.4.5.3.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = BC768BAC28F1CAA50096965A /* libopencv_core.4.5.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		BC768BAD28F1CAA50096965A /* libopencv_core.4.5.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BC768BAC28F1CAA50096965A /* libopencv_core.4.5.3.dylib */; settings = {ATTRIBUTES = (Required, ); }; };
 		BCF5516928F1C8F600389123 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCF5516828F1C8F600389123 /* main.cpp */; };
@@ -45,6 +47,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BC33DBEA28F2B59C0051852D /* helpers.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = helpers.cpp; sourceTree = "<group>"; };
+		BC33DBEB28F2B59C0051852D /* helpers.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = helpers.hpp; sourceTree = "<group>"; };
+		BC33DBEF28F2B5BA0051852D /* FileImg.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FileImg.hpp; sourceTree = "<group>"; };
+		BC33DBF128F2B9830051852D /* FileImg.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FileImg.cpp; sourceTree = "<group>"; };
 		BC768BAC28F1CAA50096965A /* libopencv_core.4.5.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_core.4.5.3.dylib; path = ../../../../usr/local/Cellar/opencv/4.5.3_2/lib/libopencv_core.4.5.3.dylib; sourceTree = "<group>"; };
 		BC768BAE28F1CADE0096965A /* simple-yolo-annotator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "simple-yolo-annotator.entitlements"; sourceTree = "<group>"; };
 		BCF5516528F1C8F600389123 /* simple-yolo-annotator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "simple-yolo-annotator"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +75,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC33DBE528F2B5330051852D /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				BC33DBEA28F2B59C0051852D /* helpers.cpp */,
+				BC33DBF128F2B9830051852D /* FileImg.cpp */,
+				BC33DBED28F2B5A50051852D /* headers */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		BC33DBED28F2B5A50051852D /* headers */ = {
+			isa = PBXGroup;
+			children = (
+				BC33DBEB28F2B59C0051852D /* helpers.hpp */,
+				BC33DBEF28F2B5BA0051852D /* FileImg.hpp */,
+			);
+			path = headers;
+			sourceTree = "<group>";
+		};
 		BCF5515C28F1C8F600389123 = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +114,7 @@
 		BCF5516728F1C8F600389123 /* simple-yolo-annotator */ = {
 			isa = PBXGroup;
 			children = (
+				BC33DBE528F2B5330051852D /* lib */,
 				BC768BAE28F1CADE0096965A /* simple-yolo-annotator.entitlements */,
 				BCF5516828F1C8F600389123 /* main.cpp */,
 			);
@@ -164,7 +190,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC33DBF228F2B9830051852D /* FileImg.cpp in Sources */,
 				BCF5516928F1C8F600389123 /* main.cpp in Sources */,
+				BC33DBEC28F2B59C0051852D /* helpers.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
