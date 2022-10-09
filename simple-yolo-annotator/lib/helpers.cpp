@@ -47,8 +47,8 @@ void handle_selection(int event, int x, int y, int flags, void* file) {
                        file_img->get_filename(), file_img->get_current_label().label_color);
         float rel_w = abs((float)rect_width / src_img.cols);
         float rel_h = abs((float)rect_height / src_img.rows);
-        float rel_x = abs((float)(file_img->get_refx() + rect_width) / src_img.cols);
-        float rel_y = abs((float)(file_img->get_refy() + rect_height) / src_img.rows);
+        float rel_x = abs((float)(file_img->get_refx() + (float)rect_width / 2) / src_img.cols);
+        float rel_y = abs((float)(file_img->get_refy() + (float)rect_height / 2) / src_img.rows);
         file_img->add_selection(src_img, to_string(file_img->get_label_index()) + " " +
                                 to_string(rel_x) + " " + to_string(rel_y) + " " +
                                 to_string(rel_w) + " " + to_string(rel_h));
