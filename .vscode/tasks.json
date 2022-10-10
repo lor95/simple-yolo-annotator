@@ -2,7 +2,7 @@
     "tasks": [
         {
             "type": "cppbuild",
-            "label": "Ubuntu 22: g++ build active file",
+            "label": "ubuntu_22_build",
             "command": "/usr/bin/g++",
             "args": [
                 "-fdiagnostics-color=always",
@@ -11,7 +11,31 @@
                 "${workspaceFolder}/${workspaceFolderBasename}/lib/FileImg.cpp",
                 "${workspaceFolder}/${workspaceFolderBasename}/lib/helpers.cpp",
                 "-o",
-                "${workspaceFolder}/Build/Ubuntu/${workspaceFolderBasename}",
+                "${workspaceFolder}/builds/ubuntu/${workspaceFolderBasename}",
+                "-std=c++17",
+                "`pkg-config --cflags --libs opencv4`"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": ["$gcc"],
+            "group": {
+                "kind": "build"
+            }
+        },
+        {
+            "type": "cppbuild",
+            "label": "macos_build",
+            "command": "/usr/bin/g++",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${workspaceFolder}/${workspaceFolderBasename}/main.cpp",
+                "${workspaceFolder}/${workspaceFolderBasename}/lib/FileImg.cpp",
+                "${workspaceFolder}/${workspaceFolderBasename}/lib/helpers.cpp",
+                "-o",
+                "${workspaceFolder}/builds/macos/${workspaceFolderBasename}",
+                "-std=c++17",
                 "`pkg-config --cflags --libs opencv4`"
             ],
             "options": {

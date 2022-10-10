@@ -2,10 +2,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Ubuntu 22",
+            "name": "Ubuntu",
             "request": "launch",
             "type": "cppdbg",
-            "program": "${workspaceFolder}/Build/Ubuntu/${workspaceFolderBasename}",
+            "program": "${workspaceFolder}/builds/ubuntu/${workspaceFolderBasename}",
             "args": [
                 "${workspaceFolder}/${workspaceFolderBasename}/samples/images",
                 "${workspaceFolder}/${workspaceFolderBasename}/samples/labels.txt"
@@ -14,7 +14,23 @@
             "cwd": "${workspaceFolder}",
             "environment": [],
             "externalConsole": false,
-            "preLaunchTask": "Ubuntu 22: g++ build active file"
+            "preLaunchTask": "ubuntu_22_build"
+        },
+        {
+            "name": "MacOS",
+            "request": "launch",
+            "type": "cppdbg",
+            "program": "${workspaceFolder}/builds/macos/${workspaceFolderBasename}",
+            "args": [
+                "${workspaceFolder}/${workspaceFolderBasename}/samples/images",
+                "${workspaceFolder}/${workspaceFolderBasename}/samples/labels.txt"
+            ],
+            "stopAtEntry": false,
+            "MIMode": "lldb",
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "preLaunchTask": "macos_build"
         }
     ]
 }
