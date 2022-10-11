@@ -24,6 +24,7 @@ const char sep =
 #endif
 
 ofstream box_file;
+bool force_exit = false;
 
 int main(int argc, const char *argv[])
 {
@@ -85,6 +86,11 @@ int main(int argc, const char *argv[])
             { // e
                 file_img->increase_selector();
             }
+            else if (key == 27)
+            { // ESC
+                force_exit = true;
+                break;
+            }
         }
         if (file_img->count_boxes() > 0)
         {
@@ -105,6 +111,11 @@ int main(int argc, const char *argv[])
         delete file_img;
 
         destroyAllWindows();
+
+        if (force_exit)
+        {
+            break;
+        }
     }
 
     return 0;

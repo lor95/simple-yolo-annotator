@@ -16,9 +16,10 @@ using namespace cv;
 const float MAX_WIDTH = 1280.0;
 bool dragging = false;
 
-void draw_rectangle(Mat img, Point coords, int width, int height, string filename, Scalar color)
+void draw_rectangle(Mat img, Point coords, int width, int height, string filename, string label, Scalar color)
 {
     rectangle(img, coords, Point(coords.x + width, coords.y + height), color, 2);
+    putText(img, label, Point(min(coords.x, coords.x + width), min(coords.y, coords.y + height) - 3), FONT_HERSHEY_PLAIN, 1, color, 1);
     imshow(filename, img);
 }
 
@@ -51,7 +52,7 @@ void handle_selection(int event, int x, int y, int flags, void *file)
     {
         dragging = false;
         draw_rectangle(src_img, file_img->get_ref_coords(), rect_width, rect_height,
-                       file_img->get_filename(), file_img->get_current_label().label_color);
+                       file_img->get_filename(), file_img->get_current_label().label, file_img->get_current_label().label_color);
         float rel_w = abs((float)rect_width / src_img.cols);
         float rel_h = abs((float)rect_height / src_img.rows);
         float rel_x = abs((float)(file_img->get_refx() + rect_width / 2) / src_img.cols);
@@ -63,6 +64,6 @@ void handle_selection(int event, int x, int y, int flags, void *file)
     else if (event == EVENT_MOUSEMOVE && dragging)
     {
         draw_rectangle(src_img, file_img->get_ref_coords(), rect_width, rect_height,
-                       file_img->get_filename(), file_img->get_current_label().label_color);
+                       file_img->get_filename(), file_img->get_current_label().label, file_img->get_current_label().label_color);
     }
 }

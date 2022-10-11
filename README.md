@@ -2,20 +2,21 @@
 
 Execute via CLI by running:
 ```bash
-simple-yolo-annotator <PATH_TO_IMG_FOLDER> <PATH_TO_LABELS_FILE>
+./simple-yolo-annotator <PATH_TO_IMG_FOLDER> <PATH_TO_LABELS_FILE>
 ```
 
 Draw rectangles with the mouse.  
 Commands:
 * __Q KEY__: annotate next image;
 * __R KEY__: delete annotation;
-* __E KEY__: loop over labels.
+* __E KEY__: loop over labels;
+* __ESC KEY__: force exit from program.
 
 # Install instructions
 
 Build opencv from source and execute:  
 ```bash
-g++ simple-yolo-annotator/main.cpp simple-yolo-annotator/lib/FileImg.cpp simple-yolo-annotator/lib/helpers.cpp -o Build/Ubuntu/simple-yolo-annotator `pkg-config --cflags --libs opencv4`
+g++ simple-yolo-annotator/main.cpp simple-yolo-annotator/lib/FileImg.cpp simple-yolo-annotator/lib/helpers.cpp -o Build/Ubuntu/simple-yolo-annotator -std=c++17 `pkg-config --cflags --libs opencv4`
 ```
 
 ## Build opencv Ubuntu:
