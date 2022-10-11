@@ -10,6 +10,7 @@ Commands:
 * __Q KEY__: annotate next image;
 * __R KEY__: delete annotation;
 * __E KEY__: loop over labels;
+* __L KEY__: toggle label visualization;
 * __ESC KEY__: force exit from program.
 
 # Install instructions

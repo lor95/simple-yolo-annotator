@@ -86,6 +86,10 @@ int main(int argc, const char *argv[])
             { // e
                 file_img->increase_selector();
             }
+            else if (key == 108)
+            { // l
+                file_img->toggle_show_lbl();
+            }
             else if (key == 27)
             { // ESC
                 force_exit = true;
