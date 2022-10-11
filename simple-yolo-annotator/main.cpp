@@ -80,7 +80,6 @@ int main(int argc, const char *argv[])
             else if (key == 114 && file_img->count_history() > 1)
             { // r
                 file_img->remove_selection();
-                imshow(file_img->get_filename(), file_img->get_last_img());
             }
             else if (key == 101)
             { // e

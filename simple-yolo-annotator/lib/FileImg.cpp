@@ -59,17 +59,7 @@ void FileImg::set_ref_coords(int x, int y)
 void FileImg::toggle_show_lbl()
 {
     show_lbl = !show_lbl;
-    if (show_lbl)
-    {
-        Mat img = get_last_img().clone();
-        Mat lbl_img = get_last_lbl_img().clone();
-        merge_images(&img, &lbl_img);
-        imshow(filename, img);
-    }
-    else
-    {
-        imshow(filename, get_last_img());
-    }
+    img_show();
 }
 void FileImg::increase_selector()
 {
@@ -105,22 +95,27 @@ std::vector<std::string> FileImg::get_boxes()
 {
     return boxes;
 }
+void FileImg::img_show()
+{
+    if (show_lbl)
+    {
+        Mat img = get_last_img().clone();
+        Mat lbl_img = get_last_lbl_img().clone();
+        merge_images(&img, &lbl_img);
+        imshow(filename, img);
+    }
+    else
+    {
+        imshow(filename, get_last_img());
+    }
+}
 void FileImg::add_selection(Mat img, Mat lbl_img, string line)
 {
     history_img.push_back(img);
     putText(lbl_img, labels[get_label_index()].label, lbl_point, FONT_HERSHEY_PLAIN, 1, labels[get_label_index()].label_color, 1);
     history_lbl.push_back(lbl_img);
     boxes.push_back(line);
-    if (show_lbl)
-    {
-        Mat bgr = img.clone();
-        merge_images(&bgr, &lbl_img);
-        imshow(filename, bgr);
-    }
-    else
-    {
-        imshow(filename, img);
-    }
+    img_show();
 }
 void FileImg::draw_rectangle(Mat img, Mat lbl_img, int width, int height)
 {
@@ -130,7 +125,8 @@ void FileImg::draw_rectangle(Mat img, Mat lbl_img, int width, int height)
 }
 void FileImg::remove_selection()
 {
-    history_img.pop_back();
     history_lbl.pop_back();
+    history_img.pop_back();
     boxes.pop_back();
+    img_show();
 }

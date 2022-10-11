@@ -43,6 +43,7 @@ public:
     size_t count_history();
     size_t count_boxes();
     std::vector<std::string> get_boxes();
+    void img_show();
     void add_selection(cv::Mat img, cv::Mat lbl_img, std::string line);
     void draw_rectangle(cv::Mat img, cv::Mat lbl_img, int width, int height);
     void remove_selection();
