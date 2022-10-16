@@ -20,6 +20,13 @@ Build opencv from source and execute:
 g++ simple-yolo-annotator/main.cpp simple-yolo-annotator/lib/FileImg.cpp simple-yolo-annotator/lib/helpers.cpp -o Build/Ubuntu/simple-yolo-annotator -std=c++17 `pkg-config --cflags --libs opencv4`
 ```
 
+## Macos opencv easy install:
+Easy install with homebrew ([Install homebrew](https://docs.brew.sh/Installation)).
+```bash
+brew install opencv
+```
+Is `pkg-config` has not been installed, execute `brew install pkg-config`.
+
 ## Build opencv Ubuntu:
 Ubuntu version: `22.04`  
 
