@@ -25,7 +25,7 @@ Easy install with homebrew ([Install homebrew](https://docs.brew.sh/Installation
 ```bash
 brew install opencv
 ```
-Is `pkg-config` has not been installed, execute `brew install pkg-config`.
+If `pkg-config` has not been installed, execute `brew install pkg-config`.
 
 ## Build opencv Ubuntu:
 Ubuntu version: `22.04`  
